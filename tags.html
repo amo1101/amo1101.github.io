@@ -1,0 +1,32 @@
+---
+layout: page
+title: Tags
+permalink: /tags/
+---
+
+{% assign sorted_tags = site.tags | sort %}
+{% if sorted_tags.size > 0 %}
+<ul class="tag-index">
+  {% for tag in sorted_tags %}
+    {% assign tag_name = tag[0] %}
+    {% assign tag_slug = tag_name | slugify %}
+  <li><a href="#{{ tag_slug }}">{{ tag_name | escape }}</a></li>
+  {% endfor %}
+</ul>
+
+{% for tag in sorted_tags %}
+  {% assign tag_name = tag[0] %}
+  {% assign tag_slug = tag_name | slugify %}
+  {% assign tagged_posts = tag[1] | sort: "date" | reverse %}
+<section id="{{ tag_slug }}">
+  <h2>{{ tag_name | escape }}</h2>
+  <ul>
+    {% for post in tagged_posts %}
+    <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a> - {{ post.date | date: "%B %-d, %Y" }}</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}
+{% else %}
+<p>No tagged posts yet.</p>
+{% endif %}
