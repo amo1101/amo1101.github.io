@@ -2,7 +2,8 @@
 layout: post
 title: "Linux Debugging Series — Phase 2: Dynamic Debug (dyndbg)"
 tags:
-  - linux-debugging
+  - linux
+  - debugging
   - dynamic-debug
   - kernel
 ---

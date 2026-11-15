@@ -2,7 +2,8 @@
 layout: post
 title: "Linux Debugging Series — Phase 3: /proc, /sys, and Introspection Tools"
 tags:
-  - linux-debugging
+  - linux
+  - debugging
   - proc
   - sysfs
 ---

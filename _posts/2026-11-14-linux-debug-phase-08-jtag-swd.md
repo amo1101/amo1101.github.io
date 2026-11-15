@@ -2,7 +2,8 @@
 layout: post
 title: "Linux Debugging Series — Phase 8: JTAG/SWD Hardware Debugging"
 tags:
-  - linux-debugging
+  - linux
+  - debugging
   - jtag
   - hardware-debugging
 ---

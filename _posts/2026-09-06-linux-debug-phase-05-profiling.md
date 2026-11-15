@@ -2,7 +2,8 @@
 layout: post
 title: "Linux Debugging Series — Phase 5: Profiling with perf, PMUv3, and Flame Graphs"
 tags:
-  - linux-debugging
+  - linux
+  - debugging
   - perf
   - profiling
 ---

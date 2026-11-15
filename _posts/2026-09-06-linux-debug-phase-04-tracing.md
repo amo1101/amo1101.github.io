@@ -2,7 +2,8 @@
 layout: post
 title: "Linux Debugging Series — Phase 4: ftrace, kprobe, tracepoints & trace-cmd"
 tags:
-  - linux-debugging
+  - linux
+  - debugging
   - ftrace
   - kernel-tracing
 ---

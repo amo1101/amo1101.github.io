@@ -2,7 +2,8 @@
 layout: post
 title: "Linux Debugging Series — Phase 6: eBPF"
 tags:
-  - linux-debugging
+  - linux
+  - debugging
   - ebpf
   - kernel-tracing
 ---

@@ -2,7 +2,8 @@
 layout: post
 title: "Linux Debugging Series — Phase 1: earlycon & Console Handoff"
 tags:
-  - linux-debugging
+  - linux
+  - debugging
   - earlycon
   - boot
 ---
