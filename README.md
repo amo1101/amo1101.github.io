@@ -20,6 +20,6 @@ Use exactly the `linux` and `debugging` tags on each post.
 
 Store downloadable post assets under `assets/` and link to them using their site paths (for example, `/assets/example.pdf`).
 
-Set `mermaid: true` in a post's front matter to render fenced Mermaid diagrams.
+Set `mermaid: true` in a post's front matter to render fenced Mermaid diagrams with mouse-wheel zoom, drag-to-pan, and on-screen controls.
 
 Edit the text in `index.html` to personalize the introduction.
