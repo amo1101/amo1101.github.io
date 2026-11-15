@@ -1,6 +1,16 @@
 ---
-layout: home
+layout: default
 title: Home
 ---
 
-Welcome to my blog. I share my writing and thoughts here.
+<p>Welcome to my blog. I share my writing and thoughts here.</p>
+
+<h2>Latest posts</h2>
+
+{% for post in site.posts %}
+<article class="post-preview">
+  <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+  <p><small>{{ post.date | date: "%B %-d, %Y" }}</small></p>
+  {{ post.excerpt }}
+</article>
+{% endfor %}

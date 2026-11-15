@@ -1,6 +1,6 @@
 # Personal blog
 
-This site uses GitHub Pages with the Minima Jekyll theme. To publish a post, add a Markdown file under `_posts/` named `YYYY-MM-DD-short-title.md`:
+This site uses GitHub Pages with the Hacker Jekyll theme. To publish a post, add a Markdown file under `_posts/` named `YYYY-MM-DD-short-title.md`:
 
 ```markdown
 ---
