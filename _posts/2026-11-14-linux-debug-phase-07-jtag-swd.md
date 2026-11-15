@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Linux Debugging Series — Phase 8: JTAG/SWD Hardware Debugging"
+title: "Linux Debugging Series — Phase 7: JTAG/SWD Hardware Debugging"
 mermaid: true
 tags:
   - linux
