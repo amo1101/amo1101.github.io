@@ -1,0 +1,186 @@
+$ telnet localhost 4444
+Trying ::1...
+Connection failed: Connection refused
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Open On-Chip Debugger
+> targets
+    TargetName         Type       Endian TapName            State
+--  ------------------ ---------- ------ ------------------ ------------
+ 0  bcm2712.ap         mem_ap     little bcm2712.cpu        running
+ 1* bcm2712.cpu0       aarch64    little bcm2712.cpu        running
+ 2  bcm2712.cpu1       aarch64    little bcm2712.cpu        running
+ 3  bcm2712.cpu2       aarch64    little bcm2712.cpu        running
+ 4  bcm2712.cpu3       aarch64    little bcm2712.cpu        running
+
+> dap info 0
+AP # 0x0
+                AP ID register 0x24770002
+                Type is MEM-AP APB2 or APB3
+MEM-AP BASE 0x80080003
+                Valid ROM table present
+                Component base address 0x80080000
+                Peripheral ID 0x01000bfa97
+                Designer is 0x0bf, Broadcom
+                Part is 0xa97, Unrecognized
+                Component class is 0x1, ROM table
+                MEMTYPE system memory not present: dedicated debug bus
+        ROMTABLE[0x0] = 0xfff80003
+                Component base address 0x80000000
+                Peripheral ID 0x04007bb4e4
+                Designer is 0x23b, ARM Ltd
+                Part is 0x4e4, Cortex-A76 ROM (ROM Table)
+                Component class is 0x9, CoreSight component
+                Type is 0x00, Miscellaneous, other
+                Dev Arch is 0x47700af7, ARM Ltd "CoreSight ROM architecture" rev.0
+                Type is ROM table
+                MEMTYPE system memory not present: dedicated debug bus
+        [L01] ROMTABLE[0x0] = 0x00010003
+                Component base address 0x80010000
+                Peripheral ID 0x04005bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x15, Debug Logic, Processor
+                Dev Arch is 0x47708a15, ARM Ltd "Processor debug architecture (v8.2-A)" rev.0
+        [L01] ROMTABLE[0x4] = 0x00020003
+                Component base address 0x80020000
+                Peripheral ID 0x04007bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x14, Debug Control, Trigger Matrix
+                Dev Arch is 0x47701a14, ARM Ltd "Cross Trigger Interface (CTI) architecture" rev.0
+        [L01] ROMTABLE[0x8] = 0x00030003
+                Component base address 0x80030000
+                Peripheral ID 0x04005bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x16, Performance Monitor, Processor
+                Dev Arch is 0x47702a16, ARM Ltd "Processor Performance Monitor (PMU) architecture" rev.0
+        [L01] ROMTABLE[0xc] = 0x00040003
+                Component base address 0x80040000
+                Peripheral ID 0x04005bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x13, Trace Source, Processor
+                Dev Arch is 0x47724a13, ARM Ltd "Embedded Trace Macrocell (ETM) architecture" rev.2
+        [L01] ROMTABLE[0x10] = 0x000c0002
+                Component not present
+        [L01] ROMTABLE[0x14] = 0x000d0006
+                Component not present
+        [L01] ROMTABLE[0x18] = 0x000e0006
+                Component not present
+        [L01] ROMTABLE[0x1c] = 0x00110003
+                Component base address 0x80110000
+                Peripheral ID 0x04005bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x15, Debug Logic, Processor
+                Dev Arch is 0x47708a15, ARM Ltd "Processor debug architecture (v8.2-A)" rev.0
+        [L01] ROMTABLE[0x20] = 0x00120003
+                Component base address 0x80120000
+                Peripheral ID 0x04007bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x14, Debug Control, Trigger Matrix
+                Dev Arch is 0x47701a14, ARM Ltd "Cross Trigger Interface (CTI) architecture" rev.0
+        [L01] ROMTABLE[0x24] = 0x00130003
+                Component base address 0x80130000
+                Peripheral ID 0x04005bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x16, Performance Monitor, Processor
+                Dev Arch is 0x47702a16, ARM Ltd "Processor Performance Monitor (PMU) architecture" rev.0
+        [L01] ROMTABLE[0x28] = 0x00140003
+                Component base address 0x80140000
+                Peripheral ID 0x04005bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x13, Trace Source, Processor
+                Dev Arch is 0x47724a13, ARM Ltd "Embedded Trace Macrocell (ETM) architecture" rev.2
+        [L01] ROMTABLE[0x2c] = 0x001c0002
+                Component not present
+        [L01] ROMTABLE[0x30] = 0x00210003
+                Component base address 0x80210000
+                Peripheral ID 0x04005bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x15, Debug Logic, Processor
+                Dev Arch is 0x47708a15, ARM Ltd "Processor debug architecture (v8.2-A)" rev.0
+        [L01] ROMTABLE[0x34] = 0x00220003
+                Component base address 0x80220000
+                Peripheral ID 0x04007bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x14, Debug Control, Trigger Matrix
+                Dev Arch is 0x47701a14, ARM Ltd "Cross Trigger Interface (CTI) architecture" rev.0
+        [L01] ROMTABLE[0x38] = 0x00230003
+                Component base address 0x80230000
+                Peripheral ID 0x04005bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x16, Performance Monitor, Processor
+                Dev Arch is 0x47702a16, ARM Ltd "Processor Performance Monitor (PMU) architecture" rev.0
+        [L01] ROMTABLE[0x3c] = 0x00240003
+                Component base address 0x80240000
+                Peripheral ID 0x04005bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x13, Trace Source, Processor
+                Dev Arch is 0x47724a13, ARM Ltd "Embedded Trace Macrocell (ETM) architecture" rev.2
+        [L01] ROMTABLE[0x40] = 0x002c0002
+                Component not present
+        [L01] ROMTABLE[0x44] = 0x00310003
+                Component base address 0x80310000
+                Peripheral ID 0x04005bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x15, Debug Logic, Processor
+                Dev Arch is 0x47708a15, ARM Ltd "Processor debug architecture (v8.2-A)" rev.0
+        [L01] ROMTABLE[0x48] = 0x00320003
+                Component base address 0x80320000
+                Peripheral ID 0x04007bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x14, Debug Control, Trigger Matrix
+                Dev Arch is 0x47701a14, ARM Ltd "Cross Trigger Interface (CTI) architecture" rev.0
+        [L01] ROMTABLE[0x4c] = 0x00330003
+                Component base address 0x80330000
+                Peripheral ID 0x04005bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x16, Performance Monitor, Processor
+                Dev Arch is 0x47702a16, ARM Ltd "Processor Performance Monitor (PMU) architecture" rev.0
+        [L01] ROMTABLE[0x50] = 0x00340003
+                Component base address 0x80340000
+                Peripheral ID 0x04005bbd0b
+                Designer is 0x23b, ARM Ltd
+                Part is 0xd0b, Cortex-A76 Debug (Debug Unit)
+                Component class is 0x9, CoreSight component
+                Type is 0x13, Trace Source, Processor
+                Dev Arch is 0x47724a13, ARM Ltd "Embedded Trace Macrocell (ETM) architecture" rev.2
+        [L01] ROMTABLE[0x54] = 0x003c0002
+                Component not present
+        [L01] ROMTABLE[0x58] = 0x00000000
+        [L01]   End of ROM table
+        ROMTABLE[0x4] = 0x00000000
+                End of ROM table
+
+> bcm2712.ap mdw 0x80010fd0 12
+0x80010fd0: 00000004 00000000 00000000 00000000 0000000b 000000bd 0000005b 00000000
+0x80010ff0: 0000000d 00000090 00000005 000000b1

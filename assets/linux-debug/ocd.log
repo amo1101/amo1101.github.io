@@ -1,0 +1,284 @@
+Debug: 6 8 log.c:236 handle_log_output_command(): set log_output to "ocd.log"
+Debug: 7 8 options.c:233 add_default_dirs(): bindir=D:/a/msys64/ucrt64/bin
+Debug: 8 8 options.c:234 add_default_dirs(): pkgdatadir=D:/a/msys64/ucrt64/share/openocd
+Debug: 9 8 options.c:235 add_default_dirs(): exepath=C:/msys64/ucrt64/bin
+Debug: 10 8 options.c:236 add_default_dirs(): bin2data=../share/openocd
+Debug: 11 8 configuration.c:33 add_script_search_dir(): adding C:/Users/[redacted]/AppData/Roaming/OpenOCD
+Debug: 12 8 configuration.c:33 add_script_search_dir(): adding C:\msys64\home\[redacted]/.config/openocd
+Debug: 13 8 configuration.c:33 add_script_search_dir(): adding C:\msys64\home\[redacted]/.openocd
+Debug: 14 8 configuration.c:33 add_script_search_dir(): adding C:/msys64/ucrt64/bin/../share/openocd/site
+Debug: 15 9 configuration.c:33 add_script_search_dir(): adding C:/msys64/ucrt64/bin/../share/openocd/scripts
+Debug: 16 9 command.c:155 script_debug(): command - ocd_find interface/cmsis-dap.cfg
+Debug: 17 15 configuration.c:88 find_file(): found C:/msys64/ucrt64/bin/../share/openocd/scripts/interface/cmsis-dap.cfg
+Debug: 18 16 command.c:155 script_debug(): command - adapter driver cmsis-dap
+Debug: 19 16 command.c:155 script_debug(): command - ocd_find bcm2712.cfg
+Debug: 20 16 configuration.c:88 find_file(): found bcm2712.cfg
+Debug: 21 16 command.c:155 script_debug(): command - transport select swd
+Debug: 22 16 command.c:155 script_debug(): command - adapter speed 1000
+Debug: 23 16 adapter.c:251 adapter_config_khz(): handle adapter khz
+Debug: 24 16 adapter.c:215 adapter_khz_to_speed(): convert khz to adapter specific speed value
+Debug: 25 16 adapter.c:215 adapter_khz_to_speed(): convert khz to adapter specific speed value
+Debug: 26 16 command.c:155 script_debug(): command - swd newdap bcm2712 cpu -expected-id 0x2ba00477
+Debug: 27 16 tcl.c:557 jim_newtap_cmd(): Creating New Tap, Chip: bcm2712, Tap: cpu, Dotted: bcm2712.cpu, 2 params
+Debug: 28 16 core.c:1474 jtag_tap_init(): Created Tap: bcm2712.cpu @ abs position 0, irlen 0, capture: 0x0 mask: 0x0
+Debug: 29 16 command.c:155 script_debug(): command - dap create bcm2712.dap -chain-position bcm2712.cpu
+Debug: 30 16 command.c:155 script_debug(): command - target create bcm2712.ap mem_ap -dap bcm2712.dap -ap-num 0
+Debug: 31 17 command.c:155 script_debug(): command - cti create bcm2712.cti0 -dap bcm2712.dap -ap-num 0 -baseaddr 0x80020000
+Debug: 32 17 arm_adi_v5.c:1095 dap_get_ap(): refcount AP#0x0 get 1
+Debug: 33 17 command.c:155 script_debug(): command - target create bcm2712.cpu0 aarch64 -dap bcm2712.dap -ap-num 0 -dbgbase 0x80010000 -cti bcm2712.cti0
+Debug: 34 17 command.c:155 script_debug(): command - cti create bcm2712.cti1 -dap bcm2712.dap -ap-num 0 -baseaddr 0x80120000
+Debug: 35 17 arm_adi_v5.c:1095 dap_get_ap(): refcount AP#0x0 get 2
+Debug: 36 17 command.c:155 script_debug(): command - target create bcm2712.cpu1 aarch64 -dap bcm2712.dap -ap-num 0 -dbgbase 0x80110000 -cti bcm2712.cti1
+Debug: 37 17 command.c:289 register_command(): command 'arm' is already registered
+Debug: 38 17 command.c:289 register_command(): command 'arm semihosting' is already registered
+Debug: 39 17 command.c:289 register_command(): command 'arm semihosting_redirect' is already registered
+Debug: 40 17 command.c:289 register_command(): command 'arm semihosting_cmdline' is already registered
+Debug: 41 17 command.c:289 register_command(): command 'arm semihosting_fileio' is already registered
+Debug: 42 17 command.c:289 register_command(): command 'arm semihosting_resexit' is already registered
+Debug: 43 17 command.c:289 register_command(): command 'arm semihosting_read_user_param' is already registered
+Debug: 44 17 command.c:289 register_command(): command 'arm semihosting_basedir' is already registered
+Debug: 45 17 command.c:289 register_command(): command 'catch_exc' is already registered
+Debug: 46 17 command.c:289 register_command(): command 'aarch64' is already registered
+Debug: 47 17 command.c:289 register_command(): command 'aarch64 cache_info' is already registered
+Debug: 48 17 command.c:289 register_command(): command 'aarch64 dbginit' is already registered
+Debug: 49 17 command.c:289 register_command(): command 'aarch64 disassemble' is already registered
+Debug: 50 17 command.c:289 register_command(): command 'aarch64 maskisr' is already registered
+Debug: 51 17 command.c:289 register_command(): command 'aarch64 mcr' is already registered
+Debug: 52 17 command.c:289 register_command(): command 'aarch64 mrc' is already registered
+Debug: 53 17 command.c:289 register_command(): command 'aarch64 smp' is already registered
+Debug: 54 17 command.c:289 register_command(): command 'aarch64 smp_gdb' is already registered
+Debug: 55 17 command.c:155 script_debug(): command - cti create bcm2712.cti2 -dap bcm2712.dap -ap-num 0 -baseaddr 0x80220000
+Debug: 56 17 arm_adi_v5.c:1095 dap_get_ap(): refcount AP#0x0 get 3
+Debug: 57 17 command.c:155 script_debug(): command - target create bcm2712.cpu2 aarch64 -dap bcm2712.dap -ap-num 0 -dbgbase 0x80210000 -cti bcm2712.cti2
+Debug: 58 17 command.c:289 register_command(): command 'arm' is already registered
+Debug: 59 17 command.c:289 register_command(): command 'arm semihosting' is already registered
+Debug: 60 17 command.c:289 register_command(): command 'arm semihosting_redirect' is already registered
+Debug: 61 17 command.c:289 register_command(): command 'arm semihosting_cmdline' is already registered
+Debug: 62 17 command.c:289 register_command(): command 'arm semihosting_fileio' is already registered
+Debug: 63 17 command.c:289 register_command(): command 'arm semihosting_resexit' is already registered
+Debug: 64 17 command.c:289 register_command(): command 'arm semihosting_read_user_param' is already registered
+Debug: 65 17 command.c:289 register_command(): command 'arm semihosting_basedir' is already registered
+Debug: 66 17 command.c:289 register_command(): command 'catch_exc' is already registered
+Debug: 67 17 command.c:289 register_command(): command 'aarch64' is already registered
+Debug: 68 17 command.c:289 register_command(): command 'aarch64 cache_info' is already registered
+Debug: 69 17 command.c:289 register_command(): command 'aarch64 dbginit' is already registered
+Debug: 70 17 command.c:289 register_command(): command 'aarch64 disassemble' is already registered
+Debug: 71 17 command.c:289 register_command(): command 'aarch64 maskisr' is already registered
+Debug: 72 17 command.c:289 register_command(): command 'aarch64 mcr' is already registered
+Debug: 73 17 command.c:289 register_command(): command 'aarch64 mrc' is already registered
+Debug: 74 17 command.c:289 register_command(): command 'aarch64 smp' is already registered
+Debug: 75 17 command.c:289 register_command(): command 'aarch64 smp_gdb' is already registered
+Debug: 76 17 command.c:155 script_debug(): command - cti create bcm2712.cti3 -dap bcm2712.dap -ap-num 0 -baseaddr 0x80320000
+Debug: 77 18 arm_adi_v5.c:1095 dap_get_ap(): refcount AP#0x0 get 4
+Debug: 78 18 command.c:155 script_debug(): command - target create bcm2712.cpu3 aarch64 -dap bcm2712.dap -ap-num 0 -dbgbase 0x80310000 -cti bcm2712.cti3
+Debug: 79 18 command.c:289 register_command(): command 'arm' is already registered
+Debug: 80 18 command.c:289 register_command(): command 'arm semihosting' is already registered
+Debug: 81 18 command.c:289 register_command(): command 'arm semihosting_redirect' is already registered
+Debug: 82 18 command.c:289 register_command(): command 'arm semihosting_cmdline' is already registered
+Debug: 83 18 command.c:289 register_command(): command 'arm semihosting_fileio' is already registered
+Debug: 84 18 command.c:289 register_command(): command 'arm semihosting_resexit' is already registered
+Debug: 85 18 command.c:289 register_command(): command 'arm semihosting_read_user_param' is already registered
+Debug: 86 18 command.c:289 register_command(): command 'arm semihosting_basedir' is already registered
+Debug: 87 18 command.c:289 register_command(): command 'catch_exc' is already registered
+Debug: 88 18 command.c:289 register_command(): command 'aarch64' is already registered
+Debug: 89 18 command.c:289 register_command(): command 'aarch64 cache_info' is already registered
+Debug: 90 18 command.c:289 register_command(): command 'aarch64 dbginit' is already registered
+Debug: 91 18 command.c:289 register_command(): command 'aarch64 disassemble' is already registered
+Debug: 92 18 command.c:289 register_command(): command 'aarch64 maskisr' is already registered
+Debug: 93 18 command.c:289 register_command(): command 'aarch64 mcr' is already registered
+Debug: 94 18 command.c:289 register_command(): command 'aarch64 mrc' is already registered
+Debug: 95 18 command.c:289 register_command(): command 'aarch64 smp' is already registered
+Debug: 96 18 command.c:289 register_command(): command 'aarch64 smp_gdb' is already registered
+Debug: 97 18 command.c:155 script_debug(): command - targets bcm2712.cpu0
+Info : 98 18 server.c:297 add_service(): Listening on port 6666 for tcl connections
+Info : 99 18 server.c:297 add_service(): Listening on port 4444 for telnet connections
+Debug: 100 18 command.c:155 script_debug(): command - init
+Debug: 101 18 command.c:155 script_debug(): command - target init
+Debug: 102 18 command.c:155 script_debug(): command - target names
+Debug: 103 18 command.c:155 script_debug(): command - bcm2712.ap cget -event gdb-flash-erase-start
+Debug: 104 18 command.c:155 script_debug(): command - bcm2712.ap configure -event gdb-flash-erase-start reset init
+Debug: 105 18 command.c:155 script_debug(): command - bcm2712.ap cget -event gdb-flash-write-end
+Debug: 106 18 command.c:155 script_debug(): command - bcm2712.ap configure -event gdb-flash-write-end reset halt
+Debug: 107 18 command.c:155 script_debug(): command - bcm2712.ap cget -event gdb-attach
+Debug: 108 18 command.c:155 script_debug(): command - bcm2712.ap configure -event gdb-attach halt 1000
+Debug: 109 18 command.c:155 script_debug(): command - bcm2712.cpu0 cget -event gdb-flash-erase-start
+Debug: 110 18 command.c:155 script_debug(): command - bcm2712.cpu0 configure -event gdb-flash-erase-start reset init
+Debug: 111 18 command.c:155 script_debug(): command - bcm2712.cpu0 cget -event gdb-flash-write-end
+Debug: 112 18 command.c:155 script_debug(): command - bcm2712.cpu0 configure -event gdb-flash-write-end reset halt
+Debug: 113 18 command.c:155 script_debug(): command - bcm2712.cpu0 cget -event gdb-attach
+Debug: 114 18 command.c:155 script_debug(): command - bcm2712.cpu0 configure -event gdb-attach halt 1000
+Debug: 115 19 command.c:155 script_debug(): command - bcm2712.cpu1 cget -event gdb-flash-erase-start
+Debug: 116 19 command.c:155 script_debug(): command - bcm2712.cpu1 configure -event gdb-flash-erase-start reset init
+Debug: 117 19 command.c:155 script_debug(): command - bcm2712.cpu1 cget -event gdb-flash-write-end
+Debug: 118 19 command.c:155 script_debug(): command - bcm2712.cpu1 configure -event gdb-flash-write-end reset halt
+Debug: 119 19 command.c:155 script_debug(): command - bcm2712.cpu1 cget -event gdb-attach
+Debug: 120 19 command.c:155 script_debug(): command - bcm2712.cpu1 configure -event gdb-attach halt 1000
+Debug: 121 19 command.c:155 script_debug(): command - bcm2712.cpu2 cget -event gdb-flash-erase-start
+Debug: 122 19 command.c:155 script_debug(): command - bcm2712.cpu2 configure -event gdb-flash-erase-start reset init
+Debug: 123 19 command.c:155 script_debug(): command - bcm2712.cpu2 cget -event gdb-flash-write-end
+Debug: 124 19 command.c:155 script_debug(): command - bcm2712.cpu2 configure -event gdb-flash-write-end reset halt
+Debug: 125 19 command.c:155 script_debug(): command - bcm2712.cpu2 cget -event gdb-attach
+Debug: 126 19 command.c:155 script_debug(): command - bcm2712.cpu2 configure -event gdb-attach halt 1000
+Debug: 127 19 command.c:155 script_debug(): command - bcm2712.cpu3 cget -event gdb-flash-erase-start
+Debug: 128 19 command.c:155 script_debug(): command - bcm2712.cpu3 configure -event gdb-flash-erase-start reset init
+Debug: 129 19 command.c:155 script_debug(): command - bcm2712.cpu3 cget -event gdb-flash-write-end
+Debug: 130 19 command.c:155 script_debug(): command - bcm2712.cpu3 configure -event gdb-flash-write-end reset halt
+Debug: 131 19 command.c:155 script_debug(): command - bcm2712.cpu3 cget -event gdb-attach
+Debug: 132 19 command.c:155 script_debug(): command - bcm2712.cpu3 configure -event gdb-attach halt 1000
+Debug: 133 19 target.c:1657 handle_target_init_command(): Initializing targets...
+Debug: 134 19 mem_ap.c:61 mem_ap_init_target(): mem_ap_init_target
+Debug: 135 19 semihosting_common.c:109 semihosting_common_init():
+Debug: 136 19 semihosting_common.c:109 semihosting_common_init():
+Debug: 137 19 semihosting_common.c:109 semihosting_common_init():
+Debug: 138 19 semihosting_common.c:109 semihosting_common_init():
+Debug: 139 32 cmsis_dap_usb_bulk.c:105 cmsis_dap_usb_open(): could not open device 0x1022:0x1639: Operation not supported or unimplemented on this platform
+Debug: 140 32 cmsis_dap_usb_bulk.c:105 cmsis_dap_usb_open(): could not open device 0x1022:0x1639: Operation not supported or unimplemented on this platform
+Debug: 141 42 cmsis_dap_usb_bulk.c:150 cmsis_dap_usb_open(): found product string of 0x2e8a:0x000c 'Debug Probe (CMSIS-DAP)'
+Debug: 142 42 cmsis_dap_usb_bulk.c:170 cmsis_dap_usb_open(): enumerating interfaces of 0x2e8a:0x000c
+Debug: 143 48 cmsis_dap_usb_bulk.c:217 cmsis_dap_usb_open(): found interface 0 string 'CMSIS-DAP v2 Interface'
+Info : 144 48 cmsis_dap_usb_bulk.c:320 cmsis_dap_usb_open(): Using CMSIS-DAPv2 interface with VID:PID=0x2e8a:0x000c, serial=E6633861A3398138
+Info : 145 60 cmsis_dap.c:1027 cmsis_dap_get_caps_info(): CMSIS-DAP: SWD supported
+Info : 146 60 cmsis_dap.c:1027 cmsis_dap_get_caps_info(): CMSIS-DAP: Atomic commands supported
+Info : 147 60 cmsis_dap.c:1027 cmsis_dap_get_caps_info(): CMSIS-DAP: Test domain timer supported
+Info : 148 60 cmsis_dap.c:1004 cmsis_dap_get_version_info(): CMSIS-DAP: FW Version = 2.0.0
+Info : 149 61 cmsis_dap.c:1156 cmsis_dap_swd_open(): CMSIS-DAP: Interface Initialised (SWD)
+Debug: 150 61 cmsis_dap.c:1238 cmsis_dap_init(): CMSIS-DAP: Packet Count = 2
+Debug: 151 61 cmsis_dap.c:1241 cmsis_dap_init(): Allocating FIFO for 2 pending packets
+Info : 152 62 cmsis_dap.c:1060 cmsis_dap_get_status(): SWCLK/TCK = 0 SWDIO/TMS = 0 TDI = 0 TDO = 0 nTRST = 0 nRESET = 0
+Info : 153 62 cmsis_dap.c:1292 cmsis_dap_init(): CMSIS-DAP: Interface ready
+Debug: 154 62 adapter.c:215 adapter_khz_to_speed(): convert khz to adapter specific speed value
+Debug: 155 62 adapter.c:219 adapter_khz_to_speed(): have adapter set up
+Debug: 156 63 adapter.c:215 adapter_khz_to_speed(): convert khz to adapter specific speed value
+Debug: 157 63 adapter.c:219 adapter_khz_to_speed(): have adapter set up
+Info : 158 63 adapter.c:179 adapter_init(): clock speed 1000 kHz
+Debug: 159 63 openocd.c:134 handle_init_command(): Debug Adapter init complete
+Debug: 160 63 command.c:155 script_debug(): command - transport init
+Debug: 161 63 transport.c:219 handle_transport_init(): handle_transport_init
+Debug: 162 63 command.c:155 script_debug(): command - dap init
+Debug: 163 63 arm_dap.c:97 dap_init_all(): Initializing all DAPs ...
+Debug: 164 63 arm_dap.c:121 dap_init_all(): DAP bcm2712.cpu configured by default to use ADIv5 protocol
+Debug: 165 63 cmsis_dap.c:1100 cmsis_dap_swd_switch_seq(): JTAG-to-SWD
+Info : 166 64 adi_v5_swd.c:370 swd_connect_single(): SWD DPIDR 0x2ba01477
+Debug: 167 64 arm_adi_v5.c:679 dap_dp_init(): bcm2712.dap
+Debug: 168 64 arm_adi_v5.c:711 dap_dp_init(): DAP: wait CDBGPWRUPACK
+Debug: 169 64 arm_adi_v5.h:638 dap_dp_poll_register(): DAP: poll 4, mask 0x20000000, value 0x20000000
+Debug: 170 65 arm_adi_v5.c:719 dap_dp_init(): DAP: wait CSYSPWRUPACK
+Debug: 171 65 arm_adi_v5.h:638 dap_dp_poll_register(): DAP: poll 4, mask 0x80000000, value 0x80000000
+Debug: 172 65 cmsis_dap.c:808 cmsis_dap_swd_write_from_queue(): refusing to enable sticky overrun detection
+Debug: 173 65 openocd.c:151 handle_init_command(): Examining targets...
+Debug: 174 65 target.c:1843 target_call_event_callbacks(): target event 19 (examine-start) for core bcm2712.ap
+Debug: 175 65 arm_adi_v5.c:1095 dap_get_ap(): refcount AP#0x0 get 5
+Debug: 176 66 arm_adi_v5.c:825 mem_ap_init(): MEM_AP Packed Transfers: disabled
+Debug: 177 66 arm_adi_v5.c:836 mem_ap_init(): MEM_AP CFG: large data 0, long address 0, big-endian 0
+Debug: 178 66 target.c:1843 target_call_event_callbacks(): target event 21 (examine-end) for core bcm2712.ap
+Debug: 179 66 target.c:1843 target_call_event_callbacks(): target event 19 (examine-start) for core bcm2712.cpu0
+Debug: 180 66 arm_adi_v5.c:1095 dap_get_ap(): refcount AP#0x0 get 6
+Debug: 181 67 arm_adi_v5.c:825 mem_ap_init(): MEM_AP Packed Transfers: disabled
+Debug: 182 67 arm_adi_v5.c:836 mem_ap_init(): MEM_AP CFG: large data 0, long address 0, big-endian 0
+Debug: 183 70 aarch64.c:2627 aarch64_examine_first(): cpuid = 0x414fd0b1
+Debug: 184 70 aarch64.c:2628 aarch64_examine_first(): ttypr = 0x00000000
+Debug: 185 70 aarch64.c:2629 aarch64_examine_first(): debug = 0x10305408
+Info : 186 70 armv8_dpm.c:1460 armv8_dpm_setup(): bcm2712.cpu0: hardware has 6 breakpoints, 4 watchpoints
+Debug: 187 70 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80010408
+Debug: 188 70 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80010418
+Debug: 189 71 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80010428
+Debug: 190 71 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80010438
+Debug: 191 72 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80010448
+Debug: 192 72 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80010458
+Debug: 193 73 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80010808
+Debug: 194 73 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80010818
+Debug: 195 74 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80010828
+Debug: 196 75 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80010838
+Debug: 197 75 aarch64.c:2670 aarch64_examine_first(): Configured 6 hw breakpoints, 4 watchpoints
+Debug: 198 75 aarch64.c:202 aarch64_init_debug_access(): bcm2712.cpu0
+Debug: 199 78 target.c:1843 target_call_event_callbacks(): target event 21 (examine-end) for core bcm2712.cpu0
+Debug: 200 78 target.c:1843 target_call_event_callbacks(): target event 19 (examine-start) for core bcm2712.cpu1
+Debug: 201 78 arm_adi_v5.c:1095 dap_get_ap(): refcount AP#0x0 get 7
+Debug: 202 79 arm_adi_v5.c:825 mem_ap_init(): MEM_AP Packed Transfers: disabled
+Debug: 203 79 arm_adi_v5.c:836 mem_ap_init(): MEM_AP CFG: large data 0, long address 0, big-endian 0
+Debug: 204 81 aarch64.c:2627 aarch64_examine_first(): cpuid = 0x414fd0b1
+Debug: 205 82 aarch64.c:2628 aarch64_examine_first(): ttypr = 0x00000000
+Debug: 206 82 aarch64.c:2629 aarch64_examine_first(): debug = 0x10305408
+Info : 207 82 armv8_dpm.c:1460 armv8_dpm_setup(): bcm2712.cpu1: hardware has 6 breakpoints, 4 watchpoints
+Debug: 208 82 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80110408
+Debug: 209 82 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80110418
+Debug: 210 83 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80110428
+Debug: 211 83 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80110438
+Debug: 212 84 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80110448
+Debug: 213 84 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80110458
+Debug: 214 85 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80110808
+Debug: 215 86 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80110818
+Debug: 216 86 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80110828
+Debug: 217 87 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80110838
+Debug: 218 87 aarch64.c:2670 aarch64_examine_first(): Configured 6 hw breakpoints, 4 watchpoints
+Debug: 219 87 aarch64.c:202 aarch64_init_debug_access(): bcm2712.cpu1
+Debug: 220 90 target.c:1843 target_call_event_callbacks(): target event 21 (examine-end) for core bcm2712.cpu1
+Debug: 221 90 target.c:1843 target_call_event_callbacks(): target event 19 (examine-start) for core bcm2712.cpu2
+Debug: 222 90 arm_adi_v5.c:1095 dap_get_ap(): refcount AP#0x0 get 8
+Debug: 223 91 arm_adi_v5.c:825 mem_ap_init(): MEM_AP Packed Transfers: disabled
+Debug: 224 91 arm_adi_v5.c:836 mem_ap_init(): MEM_AP CFG: large data 0, long address 0, big-endian 0
+Debug: 225 94 aarch64.c:2627 aarch64_examine_first(): cpuid = 0x414fd0b1
+Debug: 226 94 aarch64.c:2628 aarch64_examine_first(): ttypr = 0x00000000
+Debug: 227 94 aarch64.c:2629 aarch64_examine_first(): debug = 0x10305408
+Info : 228 94 armv8_dpm.c:1460 armv8_dpm_setup(): bcm2712.cpu2: hardware has 6 breakpoints, 4 watchpoints
+Debug: 229 94 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80210408
+Debug: 230 94 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80210418
+Debug: 231 95 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80210428
+Debug: 232 95 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80210438
+Debug: 233 96 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80210448
+Debug: 234 96 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80210458
+Debug: 235 97 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80210808
+Debug: 236 98 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80210818
+Debug: 237 98 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80210828
+Debug: 238 99 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80210838
+Debug: 239 99 aarch64.c:2670 aarch64_examine_first(): Configured 6 hw breakpoints, 4 watchpoints
+Debug: 240 99 aarch64.c:202 aarch64_init_debug_access(): bcm2712.cpu2
+Debug: 241 103 target.c:1843 target_call_event_callbacks(): target event 21 (examine-end) for core bcm2712.cpu2
+Debug: 242 103 target.c:1843 target_call_event_callbacks(): target event 19 (examine-start) for core bcm2712.cpu3
+Debug: 243 103 arm_adi_v5.c:1095 dap_get_ap(): refcount AP#0x0 get 9
+Debug: 244 104 arm_adi_v5.c:825 mem_ap_init(): MEM_AP Packed Transfers: disabled
+Debug: 245 104 arm_adi_v5.c:836 mem_ap_init(): MEM_AP CFG: large data 0, long address 0, big-endian 0
+Debug: 246 107 aarch64.c:2627 aarch64_examine_first(): cpuid = 0x414fd0b1
+Debug: 247 107 aarch64.c:2628 aarch64_examine_first(): ttypr = 0x00000000
+Debug: 248 107 aarch64.c:2629 aarch64_examine_first(): debug = 0x10305408
+Info : 249 107 armv8_dpm.c:1460 armv8_dpm_setup(): bcm2712.cpu3: hardware has 6 breakpoints, 4 watchpoints
+Debug: 250 107 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80310408
+Debug: 251 108 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80310418
+Debug: 252 109 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80310428
+Debug: 253 109 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80310438
+Debug: 254 110 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80310448
+Debug: 255 110 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80310458
+Debug: 256 111 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80310808
+Debug: 257 111 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80310818
+Debug: 258 112 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80310828
+Debug: 259 113 armv8_dpm.c:472 dpmv8_bpwp_disable(): A: bpwp disable, cr 80310838
+Debug: 260 113 aarch64.c:2670 aarch64_examine_first(): Configured 6 hw breakpoints, 4 watchpoints
+Debug: 261 113 aarch64.c:202 aarch64_init_debug_access(): bcm2712.cpu3
+Debug: 262 117 target.c:1843 target_call_event_callbacks(): target event 21 (examine-end) for core bcm2712.cpu3
+Debug: 263 117 command.c:155 script_debug(): command - flash init
+Debug: 264 117 tcl.c:1375 handle_flash_init_command(): Initializing flash devices...
+Debug: 265 117 command.c:155 script_debug(): command - nand init
+Debug: 266 117 tcl.c:487 handle_nand_init_command(): Initializing NAND devices...
+Debug: 267 117 command.c:155 script_debug(): command - pld init
+Debug: 268 117 pld.c:194 handle_pld_init_command(): Initializing PLDs...
+Debug: 269 117 command.c:155 script_debug(): command - tpiu init
+Info : 270 117 gdb_server.c:3825 gdb_target_add_one(): gdb port disabled
+Info : 271 117 gdb_server.c:3791 gdb_target_start(): starting gdb server for bcm2712.cpu0 on 3333
+Info : 272 117 server.c:297 add_service(): Listening on port 3333 for gdb connections
+Info : 273 117 gdb_server.c:3791 gdb_target_start(): starting gdb server for bcm2712.cpu1 on 3334
+Info : 274 117 server.c:297 add_service(): Listening on port 3334 for gdb connections
+Info : 275 117 gdb_server.c:3791 gdb_target_start(): starting gdb server for bcm2712.cpu2 on 3335
+Info : 276 117 server.c:297 add_service(): Listening on port 3335 for gdb connections
+Info : 277 117 gdb_server.c:3791 gdb_target_start(): starting gdb server for bcm2712.cpu3 on 3336
+Info : 278 117 server.c:297 add_service(): Listening on port 3336 for gdb connections
+Info : 279 161602 server.c:90 add_connection(): accepting 'telnet' connection on tcp/4444
+Debug: 280 185205 command.c:155 script_debug(): command - targets
+Debug: 281 211614 command.c:155 script_debug(): command - dap info 0
+Debug: 282 211617 arm_adi_v5.c:1095 dap_get_ap(): refcount AP#0x0 get 10
+Debug: 283 211696 arm_adi_v5.c:1120 dap_put_ap(): refcount AP#0x0 put 9
+Debug: 284 240552 command.c:155 script_debug(): command - dap info
+Debug: 285 240556 arm_adi_v5.c:1095 dap_get_ap(): refcount AP#0x0 get 10
+Debug: 286 240637 arm_adi_v5.c:1120 dap_put_ap(): refcount AP#0x0 put 9
+User : 287 322154 command.c:608 command_run_line(): invalid command name "quit"
+Debug: 288 324301 command.c:155 script_debug(): command - exit
+Info : 289 324306 server.c:574 server_loop(): dropped 'telnet' connection

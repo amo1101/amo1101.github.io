@@ -1,0 +1,176 @@
+$ gdb-multiarch vmlinux
+GNU gdb (GDB) 18.1
+Copyright (C) 2026 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-w64-mingw32".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+
++------------------------------------------------------------------------------+
+| Find the GDB manual online at:                                               |
+| http://www.gnu.org/software/gdb/documentation/.                              |
+| For help, type "help".                                                       |
+| Type "apropos word" to search for commands related to "word".                |
++------------------------------------------------------------------------------+
+
+Reading symbols from vmlinux...
+(gdb) set architecture aarch64
+The target architecture is set to "aarch64".
+(gdb) target extended-remote localhost:3336
+Remote debugging using localhost:3336
+cpu_do_idle () at arch/arm64/kernel/idle.c:32
+warning: 32     arch/arm64/kernel/idle.c: No such file or directory
+(gdb) bt
+#0  cpu_do_idle () at arch/arm64/kernel/idle.c:32
+#1  0xffffc00080e8f088 in arch_cpu_idle () at arch/arm64/kernel/idle.c:44
+#2  0xffffc00080e8f200 in default_idle_call () at kernel/sched/idle.c:122
+#3  0xffffc00080115ac4 in cpuidle_idle_call (stop_tick=<optimized out>) at kernel/sched/idle.c:198
+#4  do_idle () at kernel/sched/idle.c:350
+#5  0xffffc00080115d60 in cpu_startup_entry (state=state@entry=CPUHP_AP_ONLINE_IDLE)
+    at kernel/sched/idle.c:449
+#6  0xffffc0008002e43c in secondary_start_kernel () at arch/arm64/kernel/smp.c:271
+#7  0xffffc0008003aaf8 in __secondary_switched () at arch/arm64/kernel/head.S:404
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+(gdb) x/s linux_banner
+0xffffc0008100a160 <linux_banner>:      "Linux version 6.18.60-dbg+ (root@ubuntu) (aarch64-linux-gnu
+-gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0, GNU ld (GNU Binutils for Ubuntu) 2.42) #1 SMP PREEMPT Sa
+t Nov  7 06:38:11 UTC 2026\n"
+(gdb) info symbol $pc
+cpu_do_idle + 8 in section .text
+(gdb) info variables swappiness
+All variables matching regular expression "swappiness":
+
+File mm/vmscan.c:
+202:    int vm_swappiness;
+(gdb) p &vm_swappiness
+$1 = (int *) 0xffffc00081fc67c8 <vm_swappiness>
+(gdb) info functions proc_sys_write
+All functions matching regular expression "proc_sys_write":
+
+File fs/proc/proc_sysctl.c:
+624:    static ssize_t proc_sys_write(struct kiocb *, struct iov_iter *);
+(gdb) ptype struct kiocb
+type = struct kiocb {
+    struct file *ki_filp;
+    loff_t ki_pos;
+    void (*ki_complete)(struct kiocb *, long);
+    void *private;
+    int ki_flags;
+    u16 ki_ioprio;
+    u8 ki_write_stream;
+    union {
+        struct wait_page_queue *ki_waitq;
+        ssize_t (*dio_complete)(void *);
+    };
+}
+(gdb) hbreak *proc_sys_write
+Hardware assisted breakpoint 1 at 0xffffc000804b1998: file fs/proc/proc_sysctl.c, line 625.
+(gdb) continue
+Continuing.
+
+Breakpoint 1, proc_sys_write (iocb=0xffffc0008b7b3d68, iter=0xffffc0008b7b3d40)
+    at fs/proc/proc_sysctl.c:625
+warning: 625    fs/proc/proc_sysctl.c: No such file or directory
+(gdb) bt
+#0  proc_sys_write (iocb=0xffffc0008b7b3d68, iter=0xffffc0008b7b3d40) at fs/proc/proc_sysctl.c:625
+#1  0xffffc000803ef610 in new_sync_write (ppos=0xffffc0008b7b3de0, len=3, buf=0x555608ab8760 "",
+    filp=0xffff80014104da40) at fs/read_write.c:593
+#2  vfs_write (file=file@entry=0xffff80014104da40, buf=buf@entry=0x555608ab8760 "",
+    count=count@entry=3, pos=pos@entry=0xffffc0008b7b3de0) at fs/read_write.c:686
+#3  0xffffc000803ef910 in ksys_write (fd=<optimized out>, buf=0x555608ab8760 "", count=3)
+    at fs/read_write.c:738
+#4  0xffffc000803ef9d4 in __se_sys_write (count=<optimized out>, buf=<optimized out>,
+    fd=<optimized out>) at fs/read_write.c:749
+#5  __arm64_sys_write (regs=<optimized out>) at fs/read_write.c:746
+#6  0xffffc0008002f8fc in __invoke_syscall (syscall_fn=<optimized out>, regs=0xffffc0008b7b3ec0)
+    at arch/arm64/kernel/syscall.c:35
+#7  invoke_syscall (regs=regs@entry=0xffffc0008b7b3ec0, scno=<optimized out>,
+    sc_nr=sc_nr@entry=470, syscall_table=<optimized out>) at arch/arm64/kernel/syscall.c:49
+#8  0xffffc0008002f9f0 in el0_svc_common (regs=regs@entry=0xffffc0008b7b3ec0, scno=<optimized out>,
+    syscall_table=<optimized out>, sc_nr=470) at arch/arm64/kernel/syscall.c:132
+#9  0xffffc0008002fabc in do_el0_svc (regs=regs@entry=0xffffc0008b7b3ec0)
+    at arch/arm64/kernel/syscall.c:151
+#10 0xffffc00080e8c390 in el0_svc (regs=0xffffc0008b7b3ec0) at arch/arm64/kernel/entry-common.c:749
+#11 0xffffc00080e8c7f8 in el0t_64_sync_handler (regs=<optimized out>)
+    at arch/arm64/kernel/entry-common.c:768
+#12 0xffffc000800115a0 in el0t_64_sync () at arch/arm64/kernel/entry.S:596
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+(gdb) x/s ((struct kiocb *)$x0)->ki_filp->f_path.dentry->d_name.name
+0xffff8000423e4f38:     "swappiness"
+(gdb) p vm_swappiness
+$2 = 60
+(gdb) watch vm_swappiness
+Hardware watchpoint 2: vm_swappiness
+(gdb) continue
+Continuing.
+
+Hardware watchpoint 2: vm_swappiness
+
+Old value = 60
+New value = 10
+0xffffc000800c0818 in do_proc_dointvec_minmax_conv (negp=<optimized out>, lvalp=<optimized out>,
+    valp=0xffffc00081fc67c8 <vm_swappiness>, write=<optimized out>, data=0xffffc0008b7b3c98)
+    at kernel/sysctl.c:736
+warning: 736    kernel/sysctl.c: No such file or directory
+(gdb) bt
+#0  0xffffc000800c0818 in do_proc_dointvec_minmax_conv (negp=<optimized out>,
+    lvalp=<optimized out>, valp=0xffffc00081fc67c8 <vm_swappiness>, write=<optimized out>,
+    data=0xffffc0008b7b3c98) at kernel/sysctl.c:736
+#1  0xffffc000800c1a84 in __do_proc_dointvec (tbl_data=<optimized out>, table=<optimized out>,
+    write=1, buffer=<optimized out>, lenp=0xffffc0008b7b3cc8, ppos=0xffffc0008b7b3d70,
+    conv=<optimized out>, conv@entry=0xffffc000800c07b8 <do_proc_dointvec_minmax_conv>,
+    data=data@entry=0xffffc0008b7b3c98) at kernel/sysctl.c:447
+#2  0xffffc000800c1dd4 in do_proc_dointvec (data=0xffffc0008b7b3c98, conv=<optimized out>,
+    ppos=<optimized out>, lenp=<optimized out>, buffer=<optimized out>, write=<optimized out>,
+    table=<optimized out>) at kernel/sysctl.c:480
+#3  proc_dointvec_minmax (table=<optimized out>, write=<optimized out>, buffer=<optimized out>,
+    lenp=<optimized out>, ppos=<optimized out>) at kernel/sysctl.c:761
+#4  0xffffc000804b18b0 in proc_sys_call_handler (iocb=<optimized out>, iter=0xffffc0008b7b3d40,
+    write=write@entry=1) at fs/proc/proc_sysctl.c:600
+#5  0xffffc000804b19b4 in proc_sys_write (iocb=<optimized out>, iter=<optimized out>)
+    at fs/proc/proc_sysctl.c:626
+#6  0xffffc000803ef610 in new_sync_write (ppos=0xffffc0008b7b3de0, len=3, buf=0x555608ab8760 "",
+    filp=0xffff80014104da40) at fs/read_write.c:593
+#7  vfs_write (file=file@entry=0xffff80014104da40, buf=buf@entry=0x555608ab8760 "",
+    count=count@entry=3, pos=pos@entry=0xffffc0008b7b3de0) at fs/read_write.c:686
+#8  0xffffc000803ef910 in ksys_write (fd=<optimized out>, buf=0x555608ab8760 "", count=3)
+    at fs/read_write.c:738
+#9  0xffffc000803ef9d4 in __se_sys_write (count=<optimized out>, buf=<optimized out>,
+    fd=<optimized out>) at fs/read_write.c:749
+#10 __arm64_sys_write (regs=<optimized out>) at fs/read_write.c:746
+#11 0xffffc0008002f8fc in __invoke_syscall (syscall_fn=<optimized out>, regs=0xffffc0008b7b3ec0)
+--Type <RET> for more, q to quit, c to continue without paging--
+    at arch/arm64/kernel/syscall.c:35
+#12 invoke_syscall (regs=regs@entry=0xffffc0008b7b3ec0, scno=<optimized out>,
+    sc_nr=sc_nr@entry=470, syscall_table=<optimized out>) at arch/arm64/kernel/syscall.c:49
+#13 0xffffc0008002f9f0 in el0_svc_common (regs=regs@entry=0xffffc0008b7b3ec0, scno=<optimized out>,
+    syscall_table=<optimized out>, sc_nr=470) at arch/arm64/kernel/syscall.c:132
+#14 0xffffc0008002fabc in do_el0_svc (regs=regs@entry=0xffffc0008b7b3ec0)
+    at arch/arm64/kernel/syscall.c:151
+#15 0xffffc00080e8c390 in el0_svc (regs=0xffffc0008b7b3ec0) at arch/arm64/kernel/entry-common.c:749
+#16 0xffffc00080e8c7f8 in el0t_64_sync_handler (regs=<optimized out>)
+    at arch/arm64/kernel/entry-common.c:768
+#17 0xffffc000800115a0 in el0t_64_sync () at arch/arm64/kernel/entry.S:596
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+
+(gdb) p vm_swappiness
+$3 = 10
+(gdb) x/6i $pc-8
+   0xffffc000800c0810 <do_proc_dointvec_minmax_conv+88>:
+    mov w0, #0x0                        // #0
+   0xffffc000800c0814 <do_proc_dointvec_minmax_conv+92>:        str     w1, [x2]
+=> 0xffffc000800c0818 <do_proc_dointvec_minmax_conv+96>:        add     sp, sp, #0x10
+   0xffffc000800c081c <do_proc_dointvec_minmax_conv+100>:       ret
+   0xffffc000800c0820 <do_proc_dointvec_minmax_conv+104>:
+    mov x1, #0x80000000                 // #2147483648
+   0xffffc000800c0824 <do_proc_dointvec_minmax_conv+108>:       cmp     x0, x1
+(gdb) delete
+Delete all breakpoints, watchpoints, tracepoints, and catchpoints? (y or n) y
+(gdb) detach
+Detaching from program: C:/msys64/home/[redacted]/rpi5-debug/vmlinux, Remote target
+[Inferior 1 (Remote target) detached]
+(gdb)
