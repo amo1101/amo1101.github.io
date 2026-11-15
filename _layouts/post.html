@@ -13,3 +13,16 @@ layout: default
   </small></p>
   {% endif %}
 </article>
+{% if page.mermaid %}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@12/dist/mermaid.esm.min.mjs';
+
+  mermaid.initialize({ startOnLoad: false, theme: 'dark' });
+  document.querySelectorAll('pre > code.language-mermaid').forEach((code) => {
+    const diagram = code.parentElement;
+    diagram.classList.add('mermaid');
+    diagram.textContent = code.textContent;
+  });
+  await mermaid.run({ querySelector: 'pre.mermaid' });
+</script>
+{% endif %}
