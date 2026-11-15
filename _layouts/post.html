@@ -24,26 +24,5 @@ layout: default
     diagram.textContent = code.textContent;
   });
   await mermaid.run({ querySelector: 'pre.mermaid' });
-
-  const panZoomScript = document.createElement('script');
-  panZoomScript.src = 'https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js';
-  await new Promise((resolve, reject) => {
-    panZoomScript.onload = resolve;
-    panZoomScript.onerror = () => reject(new Error('Failed to load SVG pan/zoom controls.'));
-    document.head.append(panZoomScript);
-  });
-  if (typeof window.svgPanZoom !== 'function') {
-    throw new Error('SVG pan/zoom controls were not initialized.');
-  }
-  document.querySelectorAll('svg[id^="mermaid-"]').forEach((diagram) => {
-    window.svgPanZoom(diagram, {
-      controlIconsEnabled: true,
-      zoomScaleSensitivity: 0.2,
-      minZoom: 0.5,
-      maxZoom: 10,
-      fit: true,
-      center: true
-    });
-  });
 </script>
 {% endif %}
