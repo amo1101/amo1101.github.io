@@ -4,8 +4,6 @@ title: "Linux Debugging Series — Phase 8: JTAG/SWD Hardware Debugging"
 tags:
   - linux
   - debugging
-  - jtag
-  - hardware-debugging
 ---
 
 > OpenOCD `bcm2712.cfg` · Arm ADIv5 / CoreSight · `fs/proc/proc_sysctl.c`, `kernel/sysctl.c`, `mm/vmscan.c` · Linux v6.18.60 (Raspberry Pi tree, local build `6.18.60-dbg+`)

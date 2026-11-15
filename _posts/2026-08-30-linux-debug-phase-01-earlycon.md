@@ -4,8 +4,6 @@ title: "Linux Debugging Series — Phase 1: earlycon & Console Handoff"
 tags:
   - linux
   - debugging
-  - earlycon
-  - boot
 ---
 
 > `drivers/tty/serial/earlycon.c`, `kernel/printk/printk.c` · Linux v6.12.34

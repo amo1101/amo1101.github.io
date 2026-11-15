@@ -4,8 +4,6 @@ title: "Linux Debugging Series — Phase 2: Dynamic Debug (dyndbg)"
 tags:
   - linux
   - debugging
-  - dynamic-debug
-  - kernel
 ---
 
 > `lib/dynamic_debug.c`, `include/linux/dynamic_debug.h` · Linux v6.12.34

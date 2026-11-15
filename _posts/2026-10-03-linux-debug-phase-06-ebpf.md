@@ -4,8 +4,6 @@ title: "Linux Debugging Series — Phase 6: eBPF"
 tags:
   - linux
   - debugging
-  - ebpf
-  - kernel-tracing
 ---
 
 > Kernel v6.12.34, arm64 (Cortex-A76, BCM2712/RP1)

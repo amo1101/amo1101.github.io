@@ -4,8 +4,6 @@ title: "Linux Debugging Series — Phase 5: Profiling with perf, PMUv3, and Flam
 tags:
   - linux
   - debugging
-  - perf
-  - profiling
 ---
 
 > `kernel/events/core.c`, `arch/arm64/kernel/perf_event.c`, `tools/perf/` · Linux v6.12.34

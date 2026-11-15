@@ -4,8 +4,6 @@ title: "Linux Debugging Series — Phase 4: ftrace, kprobe, tracepoints & trace-
 tags:
   - linux
   - debugging
-  - ftrace
-  - kernel-tracing
 ---
 
 > `kernel/trace/` · Linux v6.12.34 · RPi5 (BCM2712/RP1, arm64)

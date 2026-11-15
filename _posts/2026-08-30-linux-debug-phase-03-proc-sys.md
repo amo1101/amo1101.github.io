@@ -4,8 +4,6 @@ title: "Linux Debugging Series — Phase 3: /proc, /sys, and Introspection Tools
 tags:
   - linux
   - debugging
-  - proc
-  - sysfs
 ---
 
 > Linux v6.12.34, RPi5 (BCM2712/RP1), arm64
